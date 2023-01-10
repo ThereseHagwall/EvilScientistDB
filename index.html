@@ -1,0 +1,71 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Evil Scientist DB</title>
+    </head>
+    <body>
+        <h1>Evil Scientist Database</h1>
+        <div class="container">
+            <section class="Box FormScientist">
+                <h2>Add Scientist</h2>
+                <form>
+                    <label for="Name">Name</label>
+                    <input
+                        type="text"
+                        class="add-scientist"
+                        placeholder="Ex. Nizze"
+                    />
+                    <label for="Age">Age</label>
+                    <input
+                        type="text"
+                        class="add-scientist"
+                        placeholder="Ex. 6"
+                    />
+                    <label for="Amount of Henchmen">Amount of Henchmen</label>
+                    <input
+                        type="text"
+                        class="add-scientist"
+                        placeholder="Ex. 22"
+                    />
+                    <label for="Description">Description</label><br />
+                    <textarea
+                        class="add-scientist"
+                        name="Description"
+                        id="DescriptionInput"
+                        cols="45"
+                        rows="8"
+                        wrap="virtual"
+                    >
+Ex. Nizze is a crazy scientist that dosen´t like humans.</textarea
+                    >
+                    <button class="addButton">ADD</button>
+                </form>
+            </section>
+            <section class="Box Scientists">
+                <h2>All Scientists</h2>
+                <button class="ScientistButton">Nizze</button>
+                <button class="ScientistButton">Zigge</button>
+                <button class="ScientistButton">Wille</button>
+                <button class="ScientistButton">Matias</button>
+                <button class="ScientistButton">Felix</button>
+                <button class="ScientistButton">Tony</button>
+            </section>
+            <section class="Box ShownScientist">
+                <h2>Your choosen Scientist</h2>
+                <section class="ShownScientistCard">
+                    <article>Name: Nizze</article>
+                    <article>Age: 6</article>
+                    <article>Amount of Henchmen: 22</article>
+                    <article>
+                        Description: Nizze is a crazy Scientist thats dosen´t
+                        like people.
+                    </article>
+                </section>
+            </section>
+        </div>
+    </body>
+    <script src="/JS/script.js"></script>
+</html>
