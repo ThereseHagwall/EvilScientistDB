@@ -1,3 +1,8 @@
-const inputField = document.querySelector("input") as HTMLInputElement;
+type scientist = {
+    name: string,
+    age: number,
+    henchmen: number,
+    descripton: string
+}
 
-const addButton = document.querySelector("button") as HTMLButtonElement;
+const Nizze: scientist = { name:'Nizze', age: 5, henchmen: 12, descripton: 'Nizze är en galen vetenskapsman som inte tycker om människor.'}
