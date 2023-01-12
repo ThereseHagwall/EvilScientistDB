@@ -59,11 +59,6 @@ addButton.addEventListener("click", function(event){
 
     scientistDB.addScientist(inputName.value, inputAge.value, inputHench.value, inputDesc.value);
     console.log(scientistDB.scientist);
-
-    inputName.innerHTML = "";
-    inputAge.innerHTML = "";
-    inputHench.innerHTML = "";
-    inputDesc.innerHTML = "";
 })
 
 //Lyssnare på alla scientist knappar. 

@@ -44,10 +44,6 @@ addButton.addEventListener("click", function (event) {
     buttonSection.append(newButton);
     scientistDB.addScientist(inputName.value, inputAge.value, inputHench.value, inputDesc.value);
     console.log(scientistDB.scientist);
-    inputName.innerHTML = "";
-    inputAge.innerHTML = "";
-    inputHench.innerHTML = "";
-    inputDesc.innerHTML = "";
 });
 scientistButton.addEventListener("click", function (e) {
     e.preventDefault();
