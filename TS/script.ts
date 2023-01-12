@@ -49,7 +49,7 @@ let scientistDB: {
     },
 }
 
-//Forloop för att hämta värdena i arryen och skapa knappar för dessa.
+//Forloop för att hämta värdena i den befintliga arryen och skapa knappar för dessa.
 for(let i=0; i<scientistDB.scientist.length; i++){
     let arrayButton = document.createElement("button");
     arrayButton.innerHTML= `${scientistDB.scientist[i].name}`;
@@ -71,7 +71,9 @@ for(let i=0; i<scientistDB.scientist.length; i++){
     })
 }
 
-//Lyssnare på ADD knappen plus skapa lyssnare för de nya knapparna
+
+
+//Lyssnare på ADD knappen plus skapa knappar och lyssnare på de nya knapparna
 addButton.addEventListener("click", function(event){
     event.preventDefault();
     scientistDB.addScientist(inputName.value, inputAge.value, inputHench.value, inputDesc.value);
