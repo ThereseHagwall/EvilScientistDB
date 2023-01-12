@@ -17,12 +17,14 @@
                     <form>
                         <label for="Name">Name</label>
                         <input
+                            id="Name"
                             type="text"
                             class="add-scientist"
                             placeholder="Ex. Nizze"
                         />
                         <label for="Age">Age</label>
                         <input
+                            id="Age"
                             type="text"
                             class="add-scientist"
                             placeholder="Ex. 6"
@@ -31,6 +33,7 @@
                             >Amount of Henchmen</label
                         >
                         <input
+                            id="Hench"
                             type="text"
                             class="add-scientist"
                             placeholder="Ex. 22"
@@ -39,7 +42,7 @@
                         <textarea
                             class="add-scientist"
                             name="Description"
-                            id="DescriptionInput"
+                            id="Desc"
                             cols="45"
                             rows="8"
                             wrap="virtual"
@@ -52,27 +55,21 @@ Ex. Nizze is a crazy scientist that dosen´t like humans.</textarea
             </div>
             <div class="box">
                 <span></span>
-                <div class="content">
+                <div class="content buttons">
                     <h2>All Scientists</h2>
-                    <button>Nizze</button>
-                    <button>Matias</button>
-                    <button>Tony</button>
-                    <button>Felix</button>
-                    <button>Zigge</button>
-                    <button>Wille</button>
+                    <button class="scientistButton">Nizze</button>
+                    <button class="scientistButton">Zigge</button>
+                    <button class="scientistButton">Wille</button>
                 </div>
             </div>
             <div class="box">
                 <span></span>
                 <div class="content">
                     <h2>Your choosen scientist</h2>
-                    <article>Name: Nizze</article>
-                    <article>Age: 6</article>
-                    <article>Amount of Henchmen: 22</article>
-                    <article>
-                        Description: Nizze is a crazy Scientist thats dosen´t
-                        like humans.
-                    </article>
+                    <article id="artName"></article>
+                    <article id="artAge"></article>
+                    <article id="artHench"></article>
+                    <article id="artDesc"></article>
                 </div>
             </div>
         </div>
