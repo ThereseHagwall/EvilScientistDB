@@ -1,5 +1,4 @@
 "use strict";
-const scientistButton = document.querySelector(".scientistButton");
 const addButton = document.querySelector(".addButton");
 const inputName = document.querySelector("#Name");
 const inputAge = document.querySelector("#Age");
@@ -37,26 +36,50 @@ let scientistDB = {
         this.scientist.push(n);
     },
 };
+for (let i = 0; i < scientistDB.scientist.length; i++) {
+    let arrayButton = document.createElement("button");
+    arrayButton.innerHTML = `${scientistDB.scientist[i].name}`;
+    buttonSection.append(arrayButton);
+    arrayButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        let artName = document.querySelector("#artName");
+        let artAge = document.querySelector("#artAge");
+        let artHench = document.querySelector("#artHench");
+        let artDesc = document.querySelector("#artDesc");
+        for (let i = 0; i < scientistDB.scientist.length; i++) {
+            if (arrayButton.innerHTML === scientistDB.scientist[i].name) {
+                artName.innerHTML = `Name: ${scientistDB.scientist[i].name}`;
+                artAge.innerHTML = `Age: ${scientistDB.scientist[i].age}`;
+                artHench.innerHTML = `Amount of Henchmen: ${scientistDB.scientist[i].henchmen}`;
+                artDesc.innerHTML = `Description: ${scientistDB.scientist[i].description}`;
+            }
+        }
+    });
+}
 addButton.addEventListener("click", function (event) {
     event.preventDefault();
+    scientistDB.addScientist(inputName.value, inputAge.value, inputHench.value, inputDesc.value);
+    console.log(scientistDB.scientist);
     const newButton = document.createElement("button");
     newButton.innerHTML = `${inputName.value}`;
     buttonSection.append(newButton);
-    scientistDB.addScientist(inputName.value, inputAge.value, inputHench.value, inputDesc.value);
-    console.log(scientistDB.scientist);
-});
-scientistButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    let artName = document.querySelector("#artName");
-    let artAge = document.querySelector("#artAge");
-    let artHench = document.querySelector("#artHench");
-    let artDesc = document.querySelector("#artDesc");
-    for (let i = 0; i < scientistDB.scientist.length; i++) {
-        if (scientistButton.innerHTML === scientistDB.scientist[i].name) {
-            artName.innerHTML = `Name: ${scientistDB.scientist[i].name}`;
-            artAge.innerHTML = `Age: ${scientistDB.scientist[i].age}`;
-            artHench.innerHTML = `Amount of Henchmen: ${scientistDB.scientist[i].henchmen}`;
-            artDesc.innerHTML = `Description: ${scientistDB.scientist[i].description}`;
+    newButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        let artName = document.querySelector("#artName");
+        let artAge = document.querySelector("#artAge");
+        let artHench = document.querySelector("#artHench");
+        let artDesc = document.querySelector("#artDesc");
+        for (let i = 0; i < scientistDB.scientist.length; i++) {
+            if (newButton.innerHTML === scientistDB.scientist[i].name) {
+                artName.innerHTML = `Name: ${scientistDB.scientist[i].name}`;
+                artAge.innerHTML = `Age: ${scientistDB.scientist[i].age}`;
+                artHench.innerHTML = `Amount of Henchmen: ${scientistDB.scientist[i].henchmen}`;
+                artDesc.innerHTML = `Description: ${scientistDB.scientist[i].description}`;
+            }
         }
-    }
+    });
+    inputName.value = "";
+    inputAge.value = "";
+    inputHench.value = "";
+    inputDesc.value = "Ex. Nizze is a crazy scientist that dosen´t like humans.";
 });

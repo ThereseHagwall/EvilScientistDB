@@ -6,7 +6,6 @@ type Scientist = {
 }
 
 //Hämtar element från html
-const scientistButton = document.querySelector(".scientistButton") as HTMLElement;
 const addButton = document.querySelector(".addButton") as HTMLButtonElement;
 const inputName = document.querySelector("#Name") as HTMLInputElement;
 const inputAge = document.querySelector("#Age") as HTMLInputElement;
@@ -50,30 +49,53 @@ let scientistDB: {
     },
 }
 
-//Lyssnare på ADD knappen
+//Forloop för att hämta värdena i arryen och skapa knappar för dessa.
+for(let i=0; i<scientistDB.scientist.length; i++){
+    let arrayButton = document.createElement("button");
+    arrayButton.innerHTML= `${scientistDB.scientist[i].name}`;
+    buttonSection.append(arrayButton);
+    arrayButton.addEventListener("click", function(e){
+        e.preventDefault();
+        let artName = document.querySelector("#artName") as HTMLElement;
+        let artAge = document.querySelector("#artAge") as HTMLElement;
+        let artHench = document.querySelector("#artHench") as HTMLElement;
+        let artDesc = document.querySelector("#artDesc") as HTMLElement;
+        for(let i=0; i<scientistDB.scientist.length; i++){
+            if(arrayButton.innerHTML === scientistDB.scientist[i].name){
+                artName.innerHTML = `Name: ${scientistDB.scientist[i].name}`;
+                artAge.innerHTML = `Age: ${scientistDB.scientist[i].age}`;
+                artHench.innerHTML = `Amount of Henchmen: ${scientistDB.scientist[i].henchmen}`;
+                artDesc.innerHTML = `Description: ${scientistDB.scientist[i].description}`;
+            }
+        }
+    })
+}
+
+//Lyssnare på ADD knappen plus skapa lyssnare för de nya knapparna
 addButton.addEventListener("click", function(event){
     event.preventDefault();
+    scientistDB.addScientist(inputName.value, inputAge.value, inputHench.value, inputDesc.value);
+    console.log(scientistDB.scientist);
     const newButton = document.createElement("button");
     newButton.innerHTML= `${inputName.value}`;
     buttonSection.append(newButton);
-
-    scientistDB.addScientist(inputName.value, inputAge.value, inputHench.value, inputDesc.value);
-    console.log(scientistDB.scientist);
-})
-
-//Lyssnare på alla scientist knappar. 
-scientistButton.addEventListener("click", function(e){
-    e.preventDefault();
-    let artName = document.querySelector("#artName") as HTMLElement;
-    let artAge = document.querySelector("#artAge") as HTMLElement;
-    let artHench = document.querySelector("#artHench") as HTMLElement;
-    let artDesc = document.querySelector("#artDesc") as HTMLElement;
-    for(let i=0; i<scientistDB.scientist.length; i++){
-        if(scientistButton.innerHTML === scientistDB.scientist[i].name){
-            artName.innerHTML = `Name: ${scientistDB.scientist[i].name}`;
-            artAge.innerHTML = `Age: ${scientistDB.scientist[i].age}`;
-            artHench.innerHTML = `Amount of Henchmen: ${scientistDB.scientist[i].henchmen}`;
-            artDesc.innerHTML = `Description: ${scientistDB.scientist[i].description}`;
+    newButton.addEventListener("click", function(e){
+        e.preventDefault();
+        let artName = document.querySelector("#artName") as HTMLElement;
+        let artAge = document.querySelector("#artAge") as HTMLElement;
+        let artHench = document.querySelector("#artHench") as HTMLElement;
+        let artDesc = document.querySelector("#artDesc") as HTMLElement;
+        for(let i=0; i<scientistDB.scientist.length; i++){
+            if(newButton.innerHTML === scientistDB.scientist[i].name){
+                artName.innerHTML = `Name: ${scientistDB.scientist[i].name}`;
+                artAge.innerHTML = `Age: ${scientistDB.scientist[i].age}`;
+                artHench.innerHTML = `Amount of Henchmen: ${scientistDB.scientist[i].henchmen}`;
+                artDesc.innerHTML = `Description: ${scientistDB.scientist[i].description}`;
+            }
         }
-    }
+    })
+    inputName.value = "";
+    inputAge.value = "";
+    inputHench.value = "";
+    inputDesc.value = "Ex. Nizze is a crazy scientist that dosen´t like humans.";
 })
