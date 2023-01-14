@@ -23,7 +23,7 @@ let scientistDB = {
             name: "Wille",
             age: 6,
             henchmen: 5,
-            description: "Wille is a crazy scientist that hates animals.",
+            description: "Wille is a crazy scientist that is kind and likes to help people. He also likes animals. ",
         },
     ],
     addScientist: function (name, age, henchmen, description) {
