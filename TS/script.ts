@@ -79,7 +79,6 @@ for(let i=0; i<scientistDB.scientist.length; i++){
 addButton.addEventListener("click", function(event){
     event.preventDefault();
     scientistDB.addScientist(inputName.value, inputAge.valueAsNumber, inputHench.valueAsNumber, inputDesc.value);
-    console.log(inputAge.valueAsNumber);
     const newButton = document.createElement("button");
     newButton.innerHTML= `${inputName.value}`;
     buttonSection.append(newButton);
